@@ -65,11 +65,11 @@ Mỗi con giáp có **tổng 15 điểm** chia cho 5 chỉ số (thang 1–5). M
 
 | Con giáp | Hành | Lối chơi | Máu | Sát thương | Tốc độ | Tầm đánh | Cơ động | Độ khó |
 |---|---|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| Tý – Chuột | Thủy | Lừa lọc, áp sát | 2 | 2 | 5 | 1 | 5 | ★★★★ |
+| Tý – Chuột | Thủy | Lừa lọc, áp sát | 2 | 3 | 5 | 1 | 4 | ★★★★ |
 | Sửu – Trâu | Thổ | Xe tăng, giáp cứng | 5 | 4 | 1 | 3 | 2 | ★★ |
 | Dần – Hổ | Mộc | Vật lộn, sức mạnh | 4 | 5 | 3 | 2 | 1 | ★★★ |
-| Mão – Mèo | Mộc | Linh hoạt trên không | 2 | 3 | 4 | 2 | 4 | ★★★★ |
-| Thìn – Rồng | Thổ | Khống chế tầm xa | 3 | 4 | 2 | 5 | 1 | ★★★ |
+| Mão – Mèo | Mộc | Linh hoạt trên không | 3 | 3 | 4 | 2 | 3 | ★★★★ |
+| Thìn – Rồng | Thổ | Khống chế tầm xa | 3 | 3 | 2 | 5 | 2 | ★★★ |
 | Tỵ – Rắn | Hỏa | Độc, gài bẫy | 2 | 3 | 3 | 4 | 3 | ★★★★★ |
 | Ngọ – Ngựa | Hỏa | Lao tới, quán tính | 3 | 3 | 5 | 3 | 1 | ★★★ |
 | Mùi – Dê | Thổ | Phòng thủ, bền bỉ | 4 | 3 | 2 | 2 | 4 | ★★ |
@@ -78,7 +78,7 @@ Mỗi con giáp có **tổng 15 điểm** chia cho 5 chỉ số (thang 1–5). M
 | Tuất – Chó | Thổ | Cân bằng, dễ chơi | 3 | 3 | 3 | 3 | 3 | ★ |
 | Hợi – Lợn | Thủy | Nặng ký, khó đoán | 5 | 4 | 2 | 2 | 2 | ★★ |
 
-> Ghi chú: *Tốc độ* = tốc độ di chuyển + ra đòn; *Cơ động* = nhảy, né, xoay xở trên không. Độ khó không tính vào ngân sách.
+> Bảng đã chỉnh sau khi cho máy tự đấu (xem mục 11). Ghi chú: *Tốc độ* = tốc độ di chuyển + ra đòn; *Cơ động* = nhảy, né, xoay xở trên không. Độ khó không tính vào ngân sách.
 
 ### 3.2. Hồ sơ chi tiết
 
@@ -323,3 +323,22 @@ Hậu cảnh có chuyển động (người dân, lễ hội, thời tiết), nh
 3. Lập bảng tính frame data mẫu cho 3 nhân vật này.
 4. Quyết định công cụ (Unity hay Unreal) theo nền tảng ưu tiên.
 5. Dựng bản mẫu hình khối đơn giản, thử nghiệm cảm giác đánh trước khi đầu tư đồ họa.
+
+---
+
+## 11. Bản chơi thử (prototype) đã làm
+
+Bản chơi được nằm ngay trong kho mã này (mở `index.html`). Đã có:
+- Đủ 12 con giáp, mỗi con 9 đòn thường, 3 chiêu đặc biệt, 1 Bản Năng, 1 Tuyệt kỹ.
+- 6 sàn đấu, chế độ Đấu với máy (3 độ khó), Hai người, Luyện tập.
+- Điều khiển bằng bàn phím, tay cầm, cảm ứng điện thoại.
+
+**Kết quả máy tự đấu** (`node tools/mo-phong.js 8 kho`, 1.056 trận, độ khó Khó): tỷ lệ thắng từng con nằm trong khoảng 25%–70%.
+Con số này phản ánh cách *máy* chơi, chưa phải người chơi thật. Cần thử nghiệm với người chơi để đưa về mục tiêu 47%–53%.
+
+Những điều chỉnh đã làm sau mô phỏng:
+- Chuột: đổi 1 điểm Cơ động sang Sát thương, thêm nội tại "Nhỏ bé" (chịu ít hơn 15% sát thương).
+- Mèo: đổi 1 điểm Cơ động sang Máu.
+- Rồng: đổi 1 điểm Sát thương sang Cơ động; đòn cận chiến chậm và yếu hơn (đúng thiết kế "cận chiến kém").
+- Chỉ được có 1 viên đạn của mình trên sàn cùng lúc (chống thả diều vô hạn).
+- Vồ Mồi (Hổ), Cắn Giữ (Chó) đỡ được; độc của Rắn chỉ do chiêu đặc biệt gây ra.
